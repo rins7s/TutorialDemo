@@ -16,7 +16,7 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "<h1>Hello World from se7en</h1>\n  <my-tutorial></my-tutorial>",
+            template: "<h1>Hello World from se7en</h1>\n            <my-tutorial></my-tutorial>",
             directives: [tutorials_component_1.TutorialsComponent]
         }), 
         __metadata('design:paramtypes', [])
