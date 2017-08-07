@@ -12,14 +12,11 @@ var core_1 = require('@angular/core');
 var TutorialsComponent = (function () {
     function TutorialsComponent() {
         this.title = 'Tutorial Heading Updated';
-        this.ApplyClass = true;
-        this.inlineStyle = true;
     }
     TutorialsComponent = __decorate([
         core_1.Component({
             selector: 'my-tutorial',
-            template: "<h4>{{title}}</h4>\n               <div [class.myClass]='ApplyClass'>My Class Activated</div>\n               <div [style.color]=\"inlineStyle? 'brown': 'green'\">Inline style Testing</div>",
-            styles: [".myClass{\n            color: red;\n        }"]
+            template: "<h4>{{title}}</h4>\n    <input type=\"text\" [(ngModel)]=\"fname\">\n    <input type=\"text\" [(ngModel)]=\"lname\">\n    Full Name:{{fname}} {{lname}}"
         }), 
         __metadata('design:paramtypes', [])
     ], TutorialsComponent);
