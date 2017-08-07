@@ -12,11 +12,14 @@ var core_1 = require('@angular/core');
 var TutorialsComponent = (function () {
     function TutorialsComponent() {
         this.title = 'Tutorial Heading Updated';
+        this.showElement = true;
+        this.color = "green";
+        this.colors = ['red', 'green', 'blue', 'orange'];
     }
     TutorialsComponent = __decorate([
         core_1.Component({
             selector: 'my-tutorial',
-            template: "<h4>{{title}}</h4>\n    <input type=\"text\" [(ngModel)]=\"fname\">\n    <input type=\"text\" [(ngModel)]=\"lname\">\n    Full Name:{{fname}} {{lname}}"
+            template: "<h4>{{title}}</h4>\n    <p *ngIf=\"showElement\">show element</p>\n    <div [ngSwitch]=\"color\">\n        <p *ngSwitchWhen=\"'red'\">red color displayed</p>\n        <p *ngSwitchWhen=\"'blue'\">blue color displayed</p>\n        <p *ngSwitchDefault> invalid color</p>\n    </div>\n    <ul>\n      <li *ngFor=\"let color of colors\">{{color}}</li>\n    </ul>"
         }), 
         __metadata('design:paramtypes', [])
     ], TutorialsComponent);
