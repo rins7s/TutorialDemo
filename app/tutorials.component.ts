@@ -3,26 +3,28 @@ import { Component } from '@angular/core';
 @Component({
     selector: 'my-tutorial',
     template: `<h4>{{title}}</h4>
-    <p *ngIf="showElement">show element</p>
-    <div [ngSwitch]="color">
-        <p *ngSwitchWhen="'red'">red color displayed</p>
-        <p *ngSwitchWhen="'blue'">blue color displayed</p>
-        <p *ngSwitchDefault> invalid color</p>
-    </div>
-    <ul>
-      <li *ngFor="let color of colors">{{color}}</li>
-    </ul>`
+    <p [ngClass]='{classOne:cOne,classTwo:cTwo}'>ngClass activated</p>
+    <button (click)="toggle()">Toggle</button>
+    <p [ngStyle]="{'font-style':style,'font-size':size}">ngStyle paragraph</p>`,
+    styles: [`.classOne{color:white;}
+               .classTwo{background-color:black;}`]
 })
 
 export class TutorialsComponent{
 
     public title = 'Tutorial Heading Updated';
-    public showElement = true;
+    
+    public cOne = true;
+    public cTwo = true;
 
-    public color ="green";
-    public colors =['red','green','blue','orange'];
-
+    public style= 'italic';
+    public size = '30px';
  
+    toggle(){
+       this.cOne = !this.cOne;
+       this.cTwo = !this.cTwo;
 
+
+    }
   
 }

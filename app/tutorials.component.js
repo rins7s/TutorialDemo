@@ -12,14 +12,20 @@ var core_1 = require('@angular/core');
 var TutorialsComponent = (function () {
     function TutorialsComponent() {
         this.title = 'Tutorial Heading Updated';
-        this.showElement = true;
-        this.color = "green";
-        this.colors = ['red', 'green', 'blue', 'orange'];
+        this.cOne = true;
+        this.cTwo = true;
+        this.style = 'italic';
+        this.size = '30px';
     }
+    TutorialsComponent.prototype.toggle = function () {
+        this.cOne = !this.cOne;
+        this.cTwo = !this.cTwo;
+    };
     TutorialsComponent = __decorate([
         core_1.Component({
             selector: 'my-tutorial',
-            template: "<h4>{{title}}</h4>\n    <p *ngIf=\"showElement\">show element</p>\n    <div [ngSwitch]=\"color\">\n        <p *ngSwitchWhen=\"'red'\">red color displayed</p>\n        <p *ngSwitchWhen=\"'blue'\">blue color displayed</p>\n        <p *ngSwitchDefault> invalid color</p>\n    </div>\n    <ul>\n      <li *ngFor=\"let color of colors\">{{color}}</li>\n    </ul>"
+            template: "<h4>{{title}}</h4>\n    <p [ngClass]='{classOne:cOne,classTwo:cTwo}'>ngClass activated</p>\n    <button (click)=\"toggle()\">Toggle</button>\n    <p [ngStyle]=\"{'font-style':style,'font-size':size}\">ngStyle paragraph</p>",
+            styles: [".classOne{color:white;}\n               .classTwo{background-color:black;}"]
         }), 
         __metadata('design:paramtypes', [])
     ], TutorialsComponent);
